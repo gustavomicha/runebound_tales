@@ -166,30 +166,34 @@ button:hover {
 }
 
 @media screen and (max-width: 600px) {
+    #deck-area img, 
+    .played-card img, 
+    .city-card img {
+        width: 250px; /* Increase the card width */
+        height: auto;
+    }
+
     #deck-area {
         display: flex;
         justify-content: flex-start;
-        gap: 10px;
+        gap: 20px; /* Increase the gap to accommodate larger images */
         margin-bottom: 20px;
-        overflow-x: auto; 
+        overflow-x: auto;
         padding: 10px;
     }
 
     #play-area {
         display: flex;
         overflow-x: auto;
-        gap: 10px;
-        padding: 10px;
+        gap: 20px; /* Increase the gap to accommodate larger images */
+        padding: 40px;
         background-color: #3e2715;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         margin-bottom: 20px;
     }
 
-    .played-card img {
-        width: 150px;
-        height: auto;
-        border: 2px solid #d4af37;
-        border-radius: 10px;
+    .discard-button {
+        bottom: -40px; /* Adjust the position of the discard button */
     }
 }
