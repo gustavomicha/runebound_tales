@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runebound 2ed In The Wild</title>
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+    <h1>Runebound 2ed In The Wild</h1>
+    <div id="game-setup">
+        <select id="game-select">
+            <option value="">Choose Game</option>
+        </select>
+        <button id="start-button">Start</button>
+    </div>
+    <div id="game-area" style="display: none;">
+        <div id="deck-area">
+            <img id="deck-back" src="assets\cards\in_the_wild\back.png" alt="Card Back">
+            <img id="current-card" style="display: none;" alt="Current Card">
+        </div>
+        <div id="buttons">
+            <button id="next-card">Next Card</button>
+            <button id="play-card">Play Card</button>
+            <button id="shuffle-deck">Shuffle Deck</button>
+        </div>
+        <div id="play-area"></div>
+    </div>
+    <script src="src/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+#game-setup {
+    margin-bottom: 20px;
+}
+
+#game-select {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#game-area {
+    margin-top: 20px;
+}
+
+#deck-area {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+#deck-area img {
+    width: 150px;
+    height: auto;
+}
+
+#buttons {
+    margin-bottom: 20px;
+}
+
+#play-area {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+.played-card {
+    position: relative;
+}
+
+.played-card img {
+    width: 100px;
+    height: auto;
+}
+
+.discard-button {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    padding: 2px 5px;
+}
