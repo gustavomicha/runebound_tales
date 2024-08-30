@@ -152,9 +152,13 @@ document.addEventListener('DOMContentLoaded', () => {
     previousCardButton.addEventListener('click', showPreviousCard);
     playCardButton.addEventListener('click', playCard);
     shuffleDeckButton.addEventListener('click', () => {
-        shuffleDeck();
-        displayCurrentCard();
+        const confirmed = confirm("Are you sure you want to shuffle the deck? This action cannot be undone.");
+        if (confirmed) {
+            shuffleDeck();
+            displayCurrentCard();
+        }
     });
+    
     backToMenuButton.addEventListener('click', () => {
         const confirmed = confirm("Are you sure you want to go back to the main menu? Your current progress will be lost.");
         if (confirmed) {
