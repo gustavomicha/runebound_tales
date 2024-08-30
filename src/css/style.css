@@ -1,27 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Uncial Antiqua', serif; 
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
+    background-color: #2b1b0e; 
+    color: #f5e6d3;
+    background-image: url('assets/background-texture.jpg'); 
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-h1 {
-    color: #333;
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #3e2715; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d4af37;
+    border-radius: 10px;
+    border: 2px solid #3e2715;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #b8892b;
+}
+
+/* scrollbar-width: auto;
+scrollbar-color: #d4af37 #3e2715; */
+
+h1, h2 {
+    color: #d4af37; 
+    text-shadow: 2px 2px 4px #000000; 
 }
 
 #game-setup {
     margin-bottom: 20px;
+    background-color: #3e2715; 
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 #game-select {
-    padding: 5px;
+    padding: 10px;
     margin-right: 10px;
+    font-family: 'Uncial Antiqua', serif;
+    background-color: #5a3d2b;
+    color: #f5e6d3; 
+    border: 1px solid #d4af37; 
+    border-radius: 5px;
 }
 
 button {
-    padding: 5px 10px;
+    padding: 10px 20px;
     cursor: pointer;
+    margin: 5px;
+    font-family: 'Uncial Antiqua', serif;
+    background-color: #5a3d2b; 
+    color: #f5e6d3;
+    border: 1px solid #d4af37; 
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background-color: #d4af37; 
+    color: #3e2715;
 }
 
 #game-area {
@@ -36,8 +88,10 @@ button {
 }
 
 #deck-area img {
-    width: 150px;
+    width: 200px;
     height: auto;
+    border: 2px solid #d4af37; 
+    border-radius: 10px;
 }
 
 #buttons {
@@ -48,24 +102,66 @@ button {
     display: flex;
     overflow-x: auto;
     gap: 10px;
+    padding: 40px;
+    background-color: #3e2715; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+#cities-area {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
     padding: 10px;
-    background-color: #f0f0f0;
+    background-color: #3e2715; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
 }
 
-.played-card {
+
+.played-card, .city-card {
     position: relative;
+    flex: 0 0 auto;
 }
 
-.played-card img {
-    width: 100px;
+.played-card img, .city-card img {
+    width: 200px;
     height: auto;
+    border: 2px solid #d4af37;
+    border-radius: 10px;
 }
 
 .discard-button {
     position: absolute;
-    bottom: 5px;
+    bottom: -30px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 12px;
     padding: 2px 5px;
+    background-color: #5a3d2b; 
+    color: #f5e6d3;
+    border: 1px solid #d4af37;
+    border-radius: 5px;
 }
+
+.rules-container {
+    white-space: nowrap;
+    overflow-x: auto;
+    padding: 10px;
+    background-color: #3e2715; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.rule-card {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: top;
+    width: 200px;
+    height: auto;
+    border: 2px solid #d4af37; 
+    border-radius: 10px;
+}
+

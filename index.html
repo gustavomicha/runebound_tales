@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Runebound 2ed In The Wild</title>
+    <title>Runebound 2ed: In The Wild</title>
     <link rel="stylesheet" href="src/css/style.css">
+    <link rel="icon" type="image/png" href="assets/misc/favicon.png"> 
 </head>
 <body>
-    <h1>Runebound 2ed In The Wild</h1>
+    <h1>Runebound 2ed: In The Wild</h1>
     <div id="game-setup">
         <select id="game-select">
             <option value="">Choose Game</option>
@@ -16,15 +17,22 @@
     </div>
     <div id="game-area" style="display: none;">
         <div id="deck-area">
-            <img id="deck-back" src="assets\cards\in_the_wild\back.png" alt="Card Back">
+            <img id="deck-back" src="assets/cards/in_the_wild/back.png" alt="Card Back">
             <img id="current-card" style="display: none;" alt="Current Card">
         </div>
         <div id="buttons">
+            <button id="previous-card">Previous Card</button>
             <button id="next-card">Next Card</button>
             <button id="play-card">Play Card</button>
             <button id="shuffle-deck">Shuffle Deck</button>
         </div>
+        <h2>Played Cards</h2>
         <div id="play-area"></div>
+        <h2>Cities of Adventures</h2>
+        <div id="cities-area"></div>
+        <button id="help-button">Rules</button>
+        <button id="back-to-menu">Back to Main Menu</button>
+
     </div>
     <script src="src/js/script.js"></script>
 </body>

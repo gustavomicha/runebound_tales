@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Rules</title>
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="icon" type="image/png" href="assets/misc/favicon.png">
+
+</head>
+<body>
+    <h1>Rule Cards
+    </h1>
+    <div id="rules-area" class="rules-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const rulesArea = document.getElementById('rules-area');
+            const ruleCards = Array.from({length: 8}, (_, i) => `0_rules (${i + 1}).png`);
+
+            ruleCards.forEach((card, index) => {
+                const cardElement = document.createElement('img');
+                cardElement.src = `../../assets/cards/rules/${card}`;
+                cardElement.alt = `Rule Card ${index + 1}`;
+                cardElement.className = 'rule-card';
+                rulesArea.appendChild(cardElement);
+            });
+        });
+    </script>
+</body>
+</html>
