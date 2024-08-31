@@ -13,7 +13,18 @@
         <select id="game-select">
             <option value="">Choose Game</option>
         </select>
-        <button id="start-button">Start</button>
+        <div>
+            <input type="checkbox" id="skeletor-mode" name="skeletor-mode">
+            <label for="skeletor-mode">Use Mr Skeletor Solo Mode?</label>
+        </div>
+        <button id="start-button">Start Game</button>
+        <button id="info-button">Info</button>
+    </div>
+    <div id="solo-setup" style="display: none;">
+        <h2>Additional Solo Setup</h2>
+        <p>Select Threat Difficulty (20: easy, 16: normal, 12: hard)</p>
+        <input type="number" id="threat-difficulty" min="1" max="30" value="16">
+        <button id="confirm-solo-setup">Confirm</button>
     </div>
     <div id="game-area" style="display: none;">
         <div id="deck-area">
@@ -28,10 +39,36 @@
         </div>
         <h2>Played Cards</h2>
         <div id="play-area"></div>
+        <div id="skeletor-section" style="display: none;">
+            <h2>Solo Mode Threat</h2>
+            <div class="threat-difficulty-container">
+                <span>Threat Difficulty: </span>
+                <span id="threat-difficulty-display"></span>
+            </div>
+            <div class="skeletor-stat">
+                <span class="skeletor-stat-label">Threat Level</span>
+                <span id="threat-level" class="skeletor-stat-value">0</span>
+                <div class="skeletor-stat-controls">
+                    <button id="increase-threat">+</button>
+                    <button id="decrease-threat">-</button>
+                </div>
+            </div>
+            <div class="skeletor-stat">
+                <span class="skeletor-stat-label">Doom Tokens</span>
+                <span id="doom-tokens" class="skeletor-stat-value">0</span>
+                <div class="skeletor-stat-controls">
+                    <button id="increase-doom">+</button>
+                    <button id="decrease-doom">-</button>
+                    <button id="reset-doom">Reset</button>
+                </div>
+            </div>
+        </div>
         <h2>Cities of Adventures</h2>
         <div id="cities-area"></div>
-        <button id="help-button">Rules</button>
-        <button id="back-to-menu">Back to Main Menu</button>
+        <div id="menu-buttons">
+            <button id="help-button">Rules</button>
+            <button id="back-to-menu">Back to Main Menu</button>
+        </div>
 
     </div>
     <script src="src/js/script.js"></script>

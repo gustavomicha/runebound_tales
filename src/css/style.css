@@ -47,16 +47,21 @@ h1, h2 {
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #game-select {
     padding: 10px;
-    margin-right: 10px;
+    margin-bottom: 10px;
     font-family: 'Uncial Antiqua', serif;
     background-color: #5a3d2b;
     color: #f5e6d3; 
     border: 1px solid #d4af37; 
     border-radius: 5px;
+    width: 80%;
+    max-width: 300px;
 }
 
 button {
@@ -88,7 +93,7 @@ button:hover {
 }
 
 #deck-area img {
-    width: 200px;
+    width: 40%;
     height: auto;
     border: 2px solid #d4af37; 
     border-radius: 10px;
@@ -127,7 +132,7 @@ button:hover {
 }
 
 .played-card img, .city-card img {
-    width: 200px;
+    width: 100%;
     height: auto;
     border: 2px solid #d4af37;
     border-radius: 10px;
@@ -159,33 +164,200 @@ button:hover {
     display: inline-block;
     margin-right: 10px;
     vertical-align: top;
-    width: 200px;
+    width: 80%;
     height: auto;
     border: 2px solid #d4af37; 
     border-radius: 10px;
 }
 
-@media screen and (max-width: 600px) {
-    #deck-area img, 
-    .played-card img, 
-    .city-card img {
-        width: 250px; /* Increase the card width */
-        height: auto;
-    }
+#game-setup {
+    margin-bottom: 20px;
+    background-color: #3e2715; 
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+#game-select {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-family: 'Uncial Antiqua', serif;
+    background-color: #5a3d2b;
+    color: #f5e6d3; 
+    border: 1px solid #d4af37; 
+    border-radius: 5px;
+    width: 80%;
+    max-width: 300px;
+}
+
+#start-button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    margin: 15px 0;
+    background-color: #d4af37;
+    color: #3e2715;
+    border: 2px solid #f5e6d3;
+    transition: all 0.3s ease;
+}
+
+#start-button:hover {
+    background-color: #f5e6d3;
+    color: #3e2715;
+    transform: scale(1.05);
+}
+
+#info-button {
+    margin-top: 10px;
+    align-self: center;
+}
+
+#solo-setup {
+    background-color: #3e2715;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#threat-difficulty {
+    padding: 10px;
+    font-family: 'Uncial Antiqua', serif;
+    background-color: #5a3d2b;
+    color: #f5e6d3; 
+    border: 1px solid #d4af37; 
+    border-radius: 5px;
+    width: 100px;
+    text-align: center;
+    font-size: 2em;
+    margin: 10px 0;
+}
+
+#skeletor-section {
+    background-color: #3e2715;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.threat-difficulty-container {
+    margin-bottom: 20px;
+}
+
+.threat-difficulty-container span {
+    font-size: 1.2em;
+    color: #d4af37;
+}
+
+#threat-difficulty-display {
+    font-size: 1.5em;
+    color: #d4af37;
+    margin-left: 10px;
+}
+
+.skeletor-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.skeletor-stat-label {
+    margin-bottom: 5px;
+}
+
+.skeletor-stat-value {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.skeletor-stat-controls {
+    display: flex;
+    gap: 5px;
+}
+
+#threat-level {
+    --threat-color: rgb(255, 255, 255);
+    color: var(--threat-color);
+    transition: color 0.3s ease;
+}
+
+#menu-buttons {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center the buttons horizontally */
+    gap: 10px; /* Add space between the buttons */
+}
+
+#help-button {
+    width: 150px; /* Set a fixed width for consistency */
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: 'Uncial Antiqua', serif;
+    background-color: #5a3d2b; 
+    color: #f5e6d3;
+    border: 1px solid #d4af37; 
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#help-button:hover {
+    background-color: #d4af37; 
+    color: #3e2715;
+}
+
+#back-to-menu {
+    width: 200px; /* Slightly wider for emphasis */
+    padding: 12px 24px;
+    cursor: pointer;
+    font-family: 'Uncial Antiqua', serif;
+    background-color: #7a491d; /* Unique dark brown background */
+    color: #f5e6d3;
+    border: 2px solid #d4af37; 
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Stronger shadow for emphasis */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#back-to-menu:hover {
+    background-color: #d4af37; 
+    color: #7a491d;
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+@media screen and (max-width: 600px) {
     #deck-area {
         display: flex;
-        justify-content: flex-start;
-        gap: 20px; /* Increase the gap to accommodate larger images */
+        justify-content: center;
+        gap: 20px;
         margin-bottom: 20px;
         overflow-x: auto;
         padding: 10px;
+        height: auto; /* Ensure the container height adjusts to its content */
+        align-items: center; /* Center the cards vertically within the area */
+    }
+
+    #deck-area img {
+        width: 90%; /* Set the width to 80% of the screen or parent container */
+        height: auto;
+        flex-shrink: 0; /* Prevent images from shrinking */
+    }
+    
+    .played-card img, .city-card img {
+        width: 100%;
+        height: auto;
+        border: 2px solid #d4af37;
+        border-radius: 10px;
     }
 
     #play-area {
         display: flex;
         overflow-x: auto;
-        gap: 20px; /* Increase the gap to accommodate larger images */
+        gap: 20px; /* Keep the gap for played cards smaller */
         padding: 40px;
         background-color: #3e2715;
         border-radius: 10px;

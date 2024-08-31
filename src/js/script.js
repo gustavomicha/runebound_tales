@@ -13,9 +13,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const citiesArea = document.getElementById('cities-area');
     const backToMenuButton = document.getElementById('back-to-menu');
     const helpButton = document.getElementById('help-button');
+    const skeletorModeCheckbox = document.getElementById('skeletor-mode');
+    const soloSetup = document.getElementById('solo-setup');
+    const confirmSoloSetupButton = document.getElementById('confirm-solo-setup');
+    const threatDifficultyInput = document.getElementById('threat-difficulty');
+    const skeletorSection = document.getElementById('skeletor-section');
+    const infoButton = document.getElementById('info-button');
+
+    let isSkeletorMode = false;
+    let threatDifficulty = 18;
 
     helpButton.addEventListener('click', () => {
-        window.open('src/html/help.html', '_blank', 'width=400,height=400');
+        window.open('src/html/help.html', '_blank', 'width=400,height=600');
+    });
+
+    infoButton.addEventListener('click', () => {
+        window.open('src/html/info.html', '_blank', 'width=600,height=400');
     });
 
     let deck = [];
@@ -139,15 +152,83 @@ document.addEventListener('DOMContentLoaded', () => {
     startButton.addEventListener('click', () => {
         if (gameSelect.value) {
             currentGameOption = gameSelect.value;
-            gameSetup.style.display = 'none';
-            gameArea.style.display = 'block';
-            initializeDeck();
-            loadCitiesOfAdventures();
+            isSkeletorMode = skeletorModeCheckbox.checked;
+            
+            if (isSkeletorMode) {
+                gameSetup.style.display = 'none';
+                soloSetup.style.display = 'block';
+            } else {
+                startGame();
+            }
         } else {
             alert('Please select a game first!');
         }
     });
 
+    function startGame() {
+        gameSetup.style.display = 'none';
+        soloSetup.style.display = 'none';
+        gameArea.style.display = 'block';
+        if (isSkeletorMode) {
+            skeletorSection.style.display = 'block';
+            document.getElementById('threat-difficulty-display').textContent = threatDifficulty;
+        }
+        initializeDeck();
+        loadCitiesOfAdventures();
+    }
+
+    confirmSoloSetupButton.addEventListener('click', () => {
+        threatDifficulty = parseInt(threatDifficultyInput.value);
+        startGame();
+    });
+
+    // Skeletor mode controls
+    let doomTokens = 0;
+    let threatLevel = 0;
+
+    const threatLevelElement = document.getElementById('threat-level');
+    
+    function updateThreatLevelColor() {
+        const red = 255; // Red stays at maximum
+        const greenBlue = Math.floor(255 * (1 - threatLevel / 10)); // Green and Blue decrease together
+        threatLevelElement.style.setProperty('--threat-color', `rgb(${red}, ${greenBlue}, ${greenBlue})`);
+    }
+
+    document.getElementById('increase-threat').addEventListener('click', () => {
+        if (threatLevel < 10) {
+            threatLevel++;
+            threatLevelElement.textContent = threatLevel;
+            updateThreatLevelColor();
+        }
+    });
+    
+    document.getElementById('decrease-threat').addEventListener('click', () => {
+        if (threatLevel > 0) {
+            threatLevel--;
+            threatLevelElement.textContent = threatLevel;
+            updateThreatLevelColor();
+        }
+    });
+
+    document.getElementById('increase-doom').addEventListener('click', () => {
+        if (doomTokens < 20) {
+            doomTokens++;
+            document.getElementById('doom-tokens').textContent = doomTokens;
+        }
+    });
+
+    document.getElementById('decrease-doom').addEventListener('click', () => {
+        if (doomTokens > 0) {
+            doomTokens--;
+            document.getElementById('doom-tokens').textContent = doomTokens;
+        }
+    });
+
+    document.getElementById('reset-doom').addEventListener('click', () => {
+        doomTokens = 0;
+        document.getElementById('doom-tokens').textContent = doomTokens;
+    });
+    
     nextCardButton.addEventListener('click', drawNextCard);
     previousCardButton.addEventListener('click', showPreviousCard);
     playCardButton.addEventListener('click', playCard);
@@ -162,15 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
     backToMenuButton.addEventListener('click', () => {
         const confirmed = confirm("Are you sure you want to go back to the main menu? Your current progress will be lost.");
         if (confirmed) {
-            gameArea.style.display = 'none';
-            gameSetup.style.display = 'block';
-            deck = [];
-            discardPile = [];
-            playedCards = [];
-            playArea.innerHTML = '';
-            citiesArea.innerHTML = '';
-            currentCard.style.display = 'none';
-            deckBack.style.display = 'block';
+            location.reload(); // This refreshes the page, resetting everything
         }
     });
     
